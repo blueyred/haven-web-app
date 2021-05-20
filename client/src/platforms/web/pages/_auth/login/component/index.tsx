@@ -158,6 +158,12 @@ export default class Login extends Component<LoginProps, LoginState> {
     });
   };
 
+  onEnterPress = (event: React.KeyboardEvent<HTMLDivElement>): void => {
+    if (event.key === 'Enter') {
+      this.handleLogin();
+    }    
+  };
+
   render() {
     const windowWidth = window.innerWidth;
     const {
@@ -250,6 +256,7 @@ export default class Login extends Component<LoginProps, LoginState> {
                   this.handleChange(event)
                 }
                 onClick={this.showPassword}
+                onKeyUp={this.onEnterPress}
                 reveal={this.state.reveal}
               />
               <Information>
